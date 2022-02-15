@@ -1,30 +1,32 @@
 <script>
-    export let name;
+    import Wrapper from './components/Wrapper.svelte';
+    import Title from './components/Title.svelte';
 </script>
 
 <main>
-    <h1>Hello {name}!</h1>
-    <p>Visit the <a href="https://svelte.dev/tutorial">Svelte tutorial</a> to learn how to build Svelte apps.</p>
+    <Wrapper>
+        <Title>Todo List</Title>
+    </Wrapper>
 </main>
 
 <style lang="scss">
+    $background: linear-gradient(
+        135deg,
+        rgba(
+            $color: #548cff,
+            $alpha: 0.8,
+        ),
+        rgba(
+            $color: #ff548c,
+            $alpha: 0.8,
+        )
+    );
+
     main {
-        text-align: center;
-        padding: 1em;
-        max-width: 240px;
-        margin: 0 auto;
-
-        h1 {
-            color: #ff3e00;
-            text-transform: uppercase;
-            font-size: 4em;
-            font-weight: 100;
-        }
-    }
-
-    @media (min-width: 640px) {
-        main {
-            max-width: none;
-        }
+        background: $background;
+        color: rgba($color: #222, $alpha: 0.8);
+        padding: 40px;
+        min-height: 100vh;
+        box-sizing: border-box;
     }
 </style>
