@@ -10,21 +10,11 @@
 </main>
 
 <style lang="scss">
-    $background: linear-gradient(
-        135deg,
-        rgba(
-            $color: #548cff,
-            $alpha: 0.8,
-        ),
-        rgba(
-            $color: #ff548c,
-            $alpha: 0.8,
-        )
-    );
+    @import './styles/variable';
 
     main {
-        background: $background;
-        color: rgba($color: #222, $alpha: 0.8);
+        background: linear-gradient(135deg, rgba($blue, 0.8), rgba($pink, 0.8));
+        color: rgba(#222, 0.8);
         padding: 40px;
         min-height: 100vh;
         box-sizing: border-box;
