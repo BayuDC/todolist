@@ -1,8 +1,32 @@
+@import 'variable';
+@import 'mixin';
+
 * {
     margin: 0;
     padding: 0;
 }
+
 body {
-    font-family: 'Poppins', sans-serif;
-    font-weight: 700;
+    @include set-font;
+}
+
+input,
+button {
+    outline: none;
+    border: none;
+    background: none;
+}
+input {
+    @include set-font;
+}
+
+span {
+    &.material-icons-outlined {
+        color: $black;
+        font-weight: bold;
+        font-size: 20px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
 }

@@ -7,7 +7,6 @@
         margin: auto;
         padding: 30px;
         max-width: 480px;
-        min-height: 600px;
         background: white;
         border-radius: 20px;
         border: 1px solid rgba(#fff, 0.6);
