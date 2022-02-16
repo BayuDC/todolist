@@ -1,10 +1,22 @@
 <script>
     import TodoItem from './TodoItem.svelte';
+    import { todos } from '../store';
 </script>
 
 <div>
-    <TodoItem>Learn Svelte</TodoItem>
-    <TodoItem>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Vel, nemo?</TodoItem>
+    {#each $todos as todo}
+        <TodoItem
+            {todo}
+            on:done={e => {
+                $todos = $todos.filter(todo => todo != e.detail);
+                $todos.push(e.detail);
+            }}
+            on:unDone={e => {
+                $todos = $todos.filter(todo => todo != e.detail);
+                $todos.unshift(e.detail);
+            }}
+        />
+    {/each}
 </div>
 
 <style lang="scss">

@@ -1,15 +1,25 @@
 <script>
+    import { createEventDispatcher } from 'svelte';
     import Card from '../shared/Card.svelte';
     import Checkbox from '../shared/Checkbox.svelte';
 
-    let checked = false;
+    const dispatch = createEventDispatcher();
+
+    export let todo;
+
+    const onCheck = e => {
+        todo.isDone = e.detail;
+
+        if (todo.isDone) dispatch('done', todo);
+        else dispatch('unDone', todo);
+    };
 </script>
 
 <Card>
     <div>
-        <Checkbox {checked} on:check={e => (checked = e.detail)} />
-        <p class:checked>
-            <slot />
+        <Checkbox checked={todo.isDone} on:check={onCheck} />
+        <p class:checked={todo.isDone}>
+            {todo.content}
         </p>
     </div>
 </Card>
