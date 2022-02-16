@@ -8,6 +8,8 @@
 </div>
 
 <style lang="scss">
+    @import '../styles/mixin';
+
     div {
         margin-top: 20px;
         overflow-y: scroll;
@@ -18,6 +20,10 @@
         scrollbar-width: none;
         &::-webkit-scrollbar {
             display: none;
+        }
+
+        @include on-mobile {
+            height: calc(100vh - 226px);
         }
     }
 </style>

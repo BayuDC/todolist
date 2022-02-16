@@ -15,10 +15,15 @@
 
 <style lang="scss">
     @import './styles/variable';
+    @import './styles/mixin';
 
     main {
         background: linear-gradient(135deg, rgba($blue, 0.8), rgba($pink, 0.8));
         padding: 40px;
         box-sizing: border-box;
+
+        @include on-mobile {
+            padding: 20px;
+        }
     }
 </style>

@@ -3,6 +3,8 @@
 </div>
 
 <style lang="scss">
+    @import '../styles/mixin';
+
     div {
         margin: auto;
         padding: 30px;
@@ -12,5 +14,9 @@
         border: 1px solid rgba(#fff, 0.6);
         box-sizing: border-box;
         background: linear-gradient(135deg, rgba(#fff, 0.6), rgba(#fff, 0.1));
+
+        @include on-mobile {
+            padding: 30px 20px;
+        }
     }
 </style>

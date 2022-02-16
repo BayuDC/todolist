@@ -15,6 +15,8 @@
 </Card>
 
 <style lang="scss">
+    @import '../styles/variable';
+
     div {
         display: flex;
         align-items: center;
@@ -25,6 +27,7 @@
             &.checked {
                 text-decoration: line-through;
                 text-decoration-thickness: 2px;
+                text-decoration-color: $black;
             }
         }
     }
