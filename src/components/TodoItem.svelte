@@ -30,10 +30,13 @@
     div {
         display: flex;
         align-items: center;
+        width: 100%;
         p {
             line-height: 20px;
             padding: 0 10px;
             margin-right: auto;
+            overflow: hidden;
+            text-overflow: ellipsis;
 
             &.checked {
                 text-decoration: line-through;
