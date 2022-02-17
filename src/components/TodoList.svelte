@@ -3,17 +3,18 @@
     import { todos } from '../store';
 
     const update = e => todos.update(todos => todos);
+    const deleteTodo = e => todos.update(todos => todos.filter(todo => todo != e.detail));
 </script>
 
 <div>
     {#each $todos as todo (todo.id)}
         {#if !todo.isDone}
-            <TodoItem {todo} on:update={update} />
+            <TodoItem {todo} on:update={update} on:delete={deleteTodo} />
         {/if}
     {/each}
     {#each $todos as todo (todo.id)}
         {#if todo.isDone}
-            <TodoItem {todo} on:update={update} />
+            <TodoItem {todo} on:update={update} on:delete={deleteTodo} />
         {/if}
     {/each}
 </div>

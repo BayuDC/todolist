@@ -2,6 +2,7 @@
     import { createEventDispatcher } from 'svelte';
     import Card from '../shared/Card.svelte';
     import Checkbox from '../shared/Checkbox.svelte';
+    import DeleteButton from '../shared/DeleteButton.svelte';
 
     const dispatch = createEventDispatcher();
 
@@ -19,6 +20,7 @@
         <p class:checked={todo.isDone}>
             {todo.content}
         </p>
+        <DeleteButton on:delete={() => dispatch('delete', todo)} />
     </div>
 </Card>
 
@@ -30,7 +32,8 @@
         align-items: center;
         p {
             line-height: 20px;
-            margin-left: 10px;
+            padding: 0 10px;
+            margin-right: auto;
 
             &.checked {
                 text-decoration: line-through;
