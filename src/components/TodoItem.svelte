@@ -9,9 +9,7 @@
 
     const onCheck = e => {
         todo.isDone = e.detail;
-
-        if (todo.isDone) dispatch('done', todo);
-        else dispatch('unDone', todo);
+        dispatch('update');
     };
 </script>
 

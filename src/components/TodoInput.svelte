@@ -11,8 +11,7 @@
     <form
         on:submit|preventDefault={() => {
             todos.update(currentTodos => {
-                currentTodos.unshift(new Todo(todoContet));
-                return currentTodos;
+                return [new Todo(todoContet), ...currentTodos];
             });
             todoContet = '';
         }}

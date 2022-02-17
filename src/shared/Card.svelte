@@ -1,4 +1,8 @@
-<div>
+<script>
+    import { scale, blur } from 'svelte/transition';
+</script>
+
+<div in:scale out:blur>
     <slot />
 </div>
 

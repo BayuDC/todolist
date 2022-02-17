@@ -1,21 +1,20 @@
 <script>
     import TodoItem from './TodoItem.svelte';
     import { todos } from '../store';
+
+    const update = e => todos.update(todos => todos);
 </script>
 
 <div>
-    {#each $todos as todo}
-        <TodoItem
-            {todo}
-            on:done={e => {
-                $todos = $todos.filter(todo => todo != e.detail);
-                $todos.push(e.detail);
-            }}
-            on:unDone={e => {
-                $todos = $todos.filter(todo => todo != e.detail);
-                $todos.unshift(e.detail);
-            }}
-        />
+    {#each $todos as todo (todo.id)}
+        {#if !todo.isDone}
+            <TodoItem {todo} on:update={update} />
+        {/if}
+    {/each}
+    {#each $todos as todo (todo.id)}
+        {#if todo.isDone}
+            <TodoItem {todo} on:update={update} />
+        {/if}
     {/each}
 </div>
 
