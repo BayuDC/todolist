@@ -8,13 +8,22 @@
 
     export let todo;
 
+    let editMode = false;
+    let tmpValue = '';
+
     const dispatch = createEventDispatcher();
-    const updateTodo = () => {
+    const edit = () => {
         editMode = false;
+        todo.content = tmpValue;
         dispatch('update');
     };
-
-    let editMode = false;
+    const enableEdit = () => {
+        editMode = true;
+        tmpValue = todo.content;
+    };
+    const cancelEdit = () => {
+        editMode = false;
+    };
 </script>
 
 <Card>
@@ -28,14 +37,16 @@
         />
 
         {#if editMode}
-            <form class="todo" on:submit|preventDefault={updateTodo}>
-                <InputText bind:value={todo.content} />
+            <form on:submit|preventDefault={edit}>
+                <InputText bind:value={tmpValue} />
             </form>
-            <Button icon="done" on:click={updateTodo} />
+            <Button icon="done" on:click={edit} />
+            <Button icon="close" on:click={cancelEdit} />
         {:else}
-            <p class="todo" class:checked={todo.isDone} on:dblclick={() => (editMode = true)}>
+            <p class:checked={todo.isDone} on:dblclick={enableEdit}>
                 {todo.content}
             </p>
+            <Button icon="edit" on:click={enableEdit} />
             <DeleteButton on:delete={() => dispatch('delete', todo)} />
         {/if}
     </div>
@@ -45,18 +56,22 @@
     @import '../styles/variable';
 
     div {
-        display: flex;
-        align-items: center;
         width: 100%;
+        display: grid;
+        grid-template-columns: 20px auto 20px 20px;
+        align-items: center;
+        gap: 10px;
 
-        .todo {
-            line-height: 20px;
-            padding: 0 10px;
-            margin-right: auto;
+        form,
+        p {
             width: 100%;
+            height: 20px;
+            line-height: 20px;
+            margin-right: auto;
         }
 
         p {
+            height: auto;
             overflow: hidden;
             text-overflow: ellipsis;
 

@@ -10,7 +10,7 @@
     });
 </script>
 
-<input type="text" bind:value bind:this={inputRef} {placeholder} required />
+<input type="text" required {placeholder} bind:value bind:this={inputRef} />
 
 <style>
     input {
