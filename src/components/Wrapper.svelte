@@ -19,7 +19,7 @@
         flex-direction: column;
 
         @include on-mobile {
-            padding: 30px 20px;
+            padding: 30px 20px 20px 20px;
         }
     }
 </style>
