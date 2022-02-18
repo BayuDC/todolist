@@ -1,6 +1,7 @@
 <script>
     import Card from '../shared/Card.svelte';
     import Button from '../shared/Button.svelte';
+    import InputText from '../shared/InputText.svelte';
     import Todo from '../lib/todo';
     import { todos } from '../store';
 
@@ -16,7 +17,7 @@
             todoContet = '';
         }}
     >
-        <input bind:value={todoContet} type="text" placeholder="New Todo..." required />
+        <InputText bind:value={todoContet} placeholder="New Todo..." />
         <Button icon="add" />
     </form>
 </Card>
@@ -26,9 +27,7 @@
         display: flex;
         align-items: center;
 
-        input {
-            width: 100%;
-            height: 20px;
+        & :global(input) {
             margin-right: 10px;
         }
     }

@@ -18,6 +18,7 @@ button {
 }
 input {
     @include set-font;
+    color: $black;
 }
 
 span {
