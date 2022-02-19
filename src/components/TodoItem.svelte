@@ -63,7 +63,7 @@
         width: 100%;
         display: grid;
         grid-template-columns: 20px auto 20px 20px;
-        align-items: center;
+        align-items: start;
         gap: 10px;
 
         form,
