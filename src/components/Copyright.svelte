@@ -1,4 +1,4 @@
-<p>Made with ❤ by BayuDC</p>
+<p>Made with ❤ by <a href="https://github.com/BayuDC">BayuDC</a></p>
 
 <style>
     p {
