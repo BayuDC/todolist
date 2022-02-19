@@ -25,9 +25,12 @@
     const cancelEdit = () => {
         editMode = false;
     };
+    const expand = () => {
+        expandMode = !expandMode;
+    };
 </script>
 
-<Card on:click={() => (expandMode = !expandMode)}>
+<Card on:click={expand}>
     <div>
         <Checkbox
             checked={todo.isDone}
@@ -44,7 +47,7 @@
             <Button icon="done" on:click={edit} />
             <Button icon="close" on:click={cancelEdit} />
         {:else}
-            <p class:checked={todo.isDone} on:dblclick={enableEdit} class:expand={expandMode}>
+            <p class:checked={todo.isDone} class:expand={expandMode} on:click={expand}>
                 {todo.content}
             </p>
             <Button icon="edit" on:click={enableEdit} />
