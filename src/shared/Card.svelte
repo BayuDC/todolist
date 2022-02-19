@@ -2,7 +2,7 @@
     import { scale, blur } from 'svelte/transition';
 </script>
 
-<div in:scale out:blur>
+<div in:scale out:blur on:click|self>
     <slot />
 </div>
 

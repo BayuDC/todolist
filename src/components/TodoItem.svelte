@@ -9,6 +9,7 @@
     export let todo;
 
     let editMode = false;
+    let expandMode = false;
     let tmpValue = '';
 
     const dispatch = createEventDispatcher();
@@ -26,7 +27,7 @@
     };
 </script>
 
-<Card>
+<Card on:click={() => (expandMode = !expandMode)}>
     <div>
         <Checkbox
             checked={todo.isDone}
@@ -43,7 +44,7 @@
             <Button icon="done" on:click={edit} />
             <Button icon="close" on:click={cancelEdit} />
         {:else}
-            <p class:checked={todo.isDone} on:dblclick={enableEdit}>
+            <p class:checked={todo.isDone} on:dblclick={enableEdit} class:expand={expandMode}>
                 {todo.content}
             </p>
             <Button icon="edit" on:click={enableEdit} />
@@ -71,14 +72,26 @@
         }
 
         p {
-            height: auto;
             overflow: hidden;
             text-overflow: ellipsis;
+            white-space: nowrap;
 
             &.checked {
                 text-decoration: line-through;
                 text-decoration-thickness: 2px;
                 text-decoration-color: $black;
+            }
+            &.expand {
+                white-space: normal;
+                text-overflow: clip;
+                overflow: scroll hidden;
+                height: 100%;
+
+                -ms-overflow-style: none;
+                scrollbar-width: none;
+                &::-webkit-scrollbar {
+                    display: none;
+                }
             }
         }
     }
