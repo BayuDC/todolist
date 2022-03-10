@@ -1,25 +1,29 @@
 # Todo List - Svelte
 
-A simple todo list app  
-Created with [Svelte](https://svelte.dev)
+A simple todo list app. Created with [Svelte](https://svelte.dev).  
+Demo: https://todolist236.netlify.app/
 
-## Development
+![Screenshot](https://cdn.discordapp.com/attachments/946013429200723989/951007670591193098/DoVUrJ90EeyqLgJCrBEAAg.png)
+
+![Version](https://img.shields.io/github/package-json/v/BayuDC/todolist-svelte?style=for-the-badge)
+![Web Status](https://img.shields.io/website.svg?url=https://todolist236.netlify.app&style=for-the-badge)
+
+## 🛠️ Development
+
 ```
-# Clone this repo 
-git clone https://github.com/BayuDC/todolist-svelte.git
+# Clone the project
+$ git clone https://github.com/BayuDC/todolist-svelte.git
 
 # Change directory
-cd todolist-svelte
+$ cd todolist-svelte
 
 # Install dependencies
-npm install 
-# or 
-yarn
+$ npm install
+# or
+$ yarn
 
-# Run developer server
-npm run dev
-# or 
-yarn dev
-
-# Open http://localhost:8080 in your browser
+# Run development server
+$ npm run dev
+# or
+$ yarn dev
 ```
