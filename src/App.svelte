@@ -3,15 +3,17 @@
     import Title from './components/Title.svelte';
     import TodoInput from './components/TodoInput.svelte';
     import TodoList from './components/TodoList.svelte';
-    import Copyright from './components/Copyright.svelte';
+    import Credit from './components/Credit.svelte';
+    import Meta from './components/Meta.svelte';
 </script>
 
 <main>
+    <Meta />
     <Wrapper>
         <Title>Todo List</Title>
         <TodoInput />
         <TodoList />
-        <Copyright />
+        <Credit />
     </Wrapper>
 </main>
 
